@@ -45,6 +45,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
+        <!--fehead common-->
+        <dependency>
+            <groupId>com.fehead.open</groupId>
+            <artifactId>fehead-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
