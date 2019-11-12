@@ -1,6 +1,7 @@
 package com.fehead.open.ca.controller;
 
 import com.fehead.lang.controller.BaseController;
+import com.fehead.lang.error.BusinessException;
 import com.fehead.lang.response.CommonReturnType;
 import com.fehead.lang.response.FeheadResponse;
 import com.fehead.open.ca.compoment.CertificateGenerator;
@@ -20,8 +21,16 @@ public class CAController extends BaseController {
     @Autowired
     CertificateGenerator certificateGenerator;
 
-    @PostMapping("/generate/{text}")
-    public FeheadResponse getFeheadAdminCertificate(@PathVariable("text") String text){
-        return CommonReturnType.create(certificateGenerator.generatorCertificate(text));
+    @PostMapping("/generate}")
+    public FeheadResponse getFeheadAdminCertificate(
+            @RequestParam("fehead_admin_application") String application
+            ){
+        return CommonReturnType.create(certificateGenerator.generatorCertificate(application));
+    }
+
+
+    @PostMapping("/validate")
+    public FeheadResponse validateFeheadAdminCertificate(@RequestParam("text") String text) throws BusinessException {
+        return CommonReturnType.create(certificateGenerator.validateCertificate(text));
     }
 }
