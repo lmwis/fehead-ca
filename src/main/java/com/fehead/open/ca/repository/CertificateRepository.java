@@ -1,7 +1,9 @@
 package com.fehead.open.ca.repository;
 
-import com.fehead.open.ca.domain.AdminCertificate;
+import com.fehead.open.ca.entity.AdminCertificate;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
 /**
@@ -10,9 +12,11 @@ import reactor.core.publisher.Mono;
  * @Date 2019-11-12 17:19
  * @Version 1.0
  */
+@Repository
 public interface CertificateRepository extends ReactiveMongoRepository<AdminCertificate,String> {
 
 
-    public Mono<AdminCertificate> findByFehead_admin_application(String application);
+    @Query("{'fehead_admin_application':'fehead-ca'}")
+    Mono<AdminCertificate> findByFeheadAdminApplication(String application);
 
 }

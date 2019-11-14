@@ -10,10 +10,21 @@ import java.util.Date;
  */
 public class FeheadAdminCertificate {
 
+    /**
+     * application name
+     * or
+     * encrypted certificate
+     */
     private String principal;
 
+    /**
+     * create time
+     */
     private Date createTime;
 
+    /**
+     * agency
+     */
     private final String CAAgency = "FEHEADCA";
 
     public FeheadAdminCertificate(String principal, Date createTime) {
