@@ -19,7 +19,7 @@ import javax.validation.constraints.NotBlank;
 @Document(collection = "fehead_admin_certificate")
 @Data
 @RequiredArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 public class AdminCertificate {
 
     /**
